@@ -70,6 +70,9 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Run custom Action
+        id: runJS
         uses: ./.github/actions/deploy-s3-javascript
         with:
           bucket: 'asdfghjklö'
+      - name: Output URL
+        runs: echo "${{ steps.runJS.outputs.url }}"

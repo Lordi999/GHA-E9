@@ -4,6 +4,9 @@ inputs:
   bucket:
     description: '...'
     required: true
+outputs:
+  url:
+    description: '...'
 runs:
   using: 'node20'
   main: 'main.js'
