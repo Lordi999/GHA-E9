@@ -3,7 +3,9 @@ const github = require('@actions/github');
 const exec = require('@actions/exec');
 
 function run() {
-  core.notice('JS Action');
+  const bucketName = core.getInput('bucket');
+
+  core.notice('JS Action - BucketName=' + bucketName );
 }
 
 run();

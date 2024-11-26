@@ -71,3 +71,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Run custom Action
         uses: ./.github/actions/deploy-s3-javascript
+        with:
+          bucket: 'asdfghjklö'
