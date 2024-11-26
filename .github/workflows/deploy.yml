@@ -75,4 +75,4 @@ jobs:
         with:
           bucket: 'asdfghjklö'
       - name: Output URL
-        runs: echo "${{ steps.runJS.outputs.url }}"
+        run: echo "${{ steps.runJS.outputs.url }}"
