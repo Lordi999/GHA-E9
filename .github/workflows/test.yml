@@ -26,6 +26,6 @@ jobs:
         uses: ./.github/actions/determineCluster
         with:
           environment: ${{ inputs.stream }}
-          clusters: 'dev, int, prod'
+          clusters: 'dev, int'
       - name: Output Result
         run: echo ${{ steps.runJS.outputs.cluster }}
