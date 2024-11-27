@@ -12,6 +12,8 @@ on:
           - int2
           - int1
           - prod
+          - test1
+          - test2
 
 jobs:
   GetCluster:
