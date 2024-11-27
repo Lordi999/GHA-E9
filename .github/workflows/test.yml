@@ -17,6 +17,8 @@ jobs:
   GetCluster:
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
       - name: Run custom Action
         id: runJS
         uses: ./.github/actions/determineCluster
