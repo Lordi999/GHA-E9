@@ -6,7 +6,8 @@ inputs:
     required: true
   clusters:
     description: 'The possible Clusters'
-    required: true
+    required: false
+    default: 'dev, int, prod'
 outputs:
   cluster:
     description: 'The determined Cluster. '
