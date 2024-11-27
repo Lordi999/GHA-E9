@@ -23,5 +23,5 @@ jobs:
         with:
           environment: ${{ inputs.stream }}
           clusters: 'dev, int, prod'
-      - name: Output Result:
+      - name: Output Result
         run: echo ${{ steps.runJS.outputs.cluster }}
