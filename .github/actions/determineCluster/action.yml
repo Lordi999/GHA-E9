@@ -1,0 +1,15 @@
+name: 'Determine the Cluster'
+description: 'Determines the Cluster based on the Environment'
+inputs:
+  environment:
+    description: 'The selected Environment'
+    required: true
+  clusters:
+    description: 'The possible Clusters'
+    required: true
+outputs:
+  cluster:
+    description: 'The determined Cluster. '
+runs:
+  using: 'node20'
+  main: 'main.js'
