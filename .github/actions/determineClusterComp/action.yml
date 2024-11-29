@@ -19,8 +19,13 @@ runs:
       id: determineCluster
       shell: bash
       run: |
+        # Split the clusters string into an array
         IFS=', ' read -r -a clusters <<< "${{ inputs.clusters }}"
+
+        # Set the default result if none of the clusters matches
         echo "result=Unknown" >> $GITHUB_OUTPUT
+
+        # Check if any cluster is a prefix of the environment string
         for cluster in "${clusters[@]}"; do
           if [[ "${{ inputs.environment }}" == *"$cluster"* ]]; then
             echo "result=$cluster" >> $GITHUB_OUTPUT
