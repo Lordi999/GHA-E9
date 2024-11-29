@@ -1,0 +1,28 @@
+name: 'Determine the Cluster'
+description: 'Determines the Cluster based on the Environment'
+inputs:
+  environment:
+    description: 'The selected Environment'
+    required: true
+  clusters:
+    description: 'The possible Clusters'
+    required: false
+    default: 'dev, int, prod'
+outputs:
+  cluster:
+    description: 'The determined Cluster. '
+    value: ${{ steps.determineCluster.outputs.result }}
+runs:
+  using: 'composite'
+  steps:
+    - name: DetermineCluster
+      id: determineCluster
+      shell: bash
+      run: |
+        IFS=', ' read -r -a clusters <<< "${{ inputs.clusters }}"
+        for cluster in "${clusters[@]}"; do
+          if [[ "${{ inputs.environment }}" == *"$cluster"* ]]; then
+            echo "result=$cluster" >> $GITHUB_OUTPUT
+            break
+          fi
+        done
