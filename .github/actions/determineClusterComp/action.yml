@@ -20,6 +20,7 @@ runs:
       shell: bash
       run: |
         IFS=', ' read -r -a clusters <<< "${{ inputs.clusters }}"
+        echo "result=Unknown" >> $GITHUB_OUTPUT
         for cluster in "${clusters[@]}"; do
           if [[ "${{ inputs.environment }}" == *"$cluster"* ]]; then
             echo "result=$cluster" >> $GITHUB_OUTPUT
